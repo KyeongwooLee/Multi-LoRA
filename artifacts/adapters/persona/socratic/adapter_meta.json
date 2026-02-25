@@ -1,0 +1,8 @@
+{
+  "style": "socratic",
+  "sample_count": 2,
+  "rank": 16,
+  "base_model": "Qwen/Qwen2.5-14B-Instruct",
+  "training_mode": "mock",
+  "reason": "real training disabled (ENABLE_REAL_TRAINING=0)"
+}

@@ -23,7 +23,6 @@ STYLE_LABELS: tuple[str, ...] = (
     "socratic",
     "scaffolding",
     "feedback",
-    "motivational",
 )
 
 STYLE_DISPLAY_NAMES: dict[str, str] = {
@@ -31,7 +30,6 @@ STYLE_DISPLAY_NAMES: dict[str, str] = {
     "socratic": "Socratic",
     "scaffolding": "Scaffolding",
     "feedback": "Feedback",
-    "motivational": "Motivational",
 }
 
 STYLE_ALIASES: dict[str, str] = {
@@ -40,7 +38,6 @@ STYLE_ALIASES: dict[str, str] = {
     "socratic": "socratic",
     "scaffolding": "scaffolding",
     "feedback": "feedback",
-    "motivational": "motivational",
 }
 
 

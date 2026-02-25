@@ -20,39 +20,67 @@ def test_config(tmp_path, monkeypatch):
     data_dir = tmp_path / "data"
     raw_dir = data_dir / "raw"
 
-    tscc_items = [
+    gsm8k_items = [
         {
-            "instruction": "Please solve this algebra question and explain each calculation step in order.",
-            "response": "Great, first isolate the variable, second simplify both sides, and third verify the final value.",
+            "question": "Natalia sold 48 clips in April and half as many in May. How many clips in total?",
+            "answer": "Natalia sold 24 clips in May and 72 clips in total.",
         },
         {
-            "instruction": "I am worried I will fail this exam. Help me keep studying tonight.",
-            "response": "You can do this. Keep going with one small step now, and your confidence will grow.",
+            "question": "Weng earns 12 dollars per hour and worked 50 minutes. How much did she earn?",
+            "answer": "Weng earns 0.2 dollars per minute, so she earned 10 dollars.",
         },
     ]
-    socratic_items = [
-        {
-            "prompt": "I do not understand why acceleration changes when force changes.",
-            "answer": "What relationship do you already know between force and acceleration? Why might mass matter?",
+    socrateach_multi = {
+        "GSM8K_train_0": {
+            "question": "Find total clips sold in April and May.",
+            "analysis": "Half of 48 is 24; 48 + 24 = 72.",
+            "answer": "72",
+            "steps": ["Find May clips", "Add totals"],
+            "dialogues": {
+                "GSM8K_train_0_0": [
+                    {
+                        "system": "What does half as many mean for 48?",
+                        "user": "It means divide 48 by 2.",
+                        "user_type": "(1)",
+                    },
+                    {
+                        "system": "Great. Now add April and May to get the total.",
+                        "user": "48 plus 24 equals 72.",
+                        "user_type": "(2)",
+                    },
+                ]
+            },
         }
-    ]
+    }
     eedi_items = [
         {
             "question": "I can start this geometry question but I get stuck in the middle.",
             "output": "Nice start. Try finding one angle first, then use that as a hint for the next step.",
         }
     ]
-    feedback_items = [
-        {
-            "instruction": "Here is my essay answer about climate change causes.",
-            "response": "Your structure is clear, but improve evidence quality and add one counterargument paragraph.",
-        }
-    ]
+    socrateach_single = {
+        "incorrect#GSM8K_train_0_0_4@0": {
+            "prompt": "I think the total is 79.9.",
+            "response": "Check the sum of 48 and 24 again and focus on arithmetic accuracy.",
+            "history": ["..."],
+        },
+        "correct#GSM8K_train_0_0_4@0": {
+            "prompt": "The total is 72 clips.",
+            "response": "Correct result. Next, explain why May is half of April in one sentence.",
+            "history": ["..."],
+        },
+    }
 
-    _write_jsonl(raw_dir / "tscc" / "sample.jsonl", tscc_items)
-    _write_jsonl(raw_dir / "socraticlm" / "sample.jsonl", socratic_items)
-    _write_jsonl(raw_dir / "eedi" / "sample.jsonl", eedi_items)
-    _write_jsonl(raw_dir / "feedback_prize" / "sample.jsonl", feedback_items)
+    _write_jsonl(raw_dir / "GSM8K.jsonl", gsm8k_items)
+    _write_jsonl(raw_dir / "Eedi.jsonl", eedi_items)
+    (raw_dir / "SocraTeach_multi.json").write_text(
+        json.dumps(socrateach_multi, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+    (raw_dir / "SocraTeach_single.json").write_text(
+        json.dumps(socrateach_single, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
 
     artifacts_dir = tmp_path / "artifacts"
     processed_dir = data_dir / "processed"
@@ -72,7 +100,7 @@ def test_config(tmp_path, monkeypatch):
     monkeypatch.setenv("ENABLE_REAL_ROUTER_EMBEDDING", "0")
     monkeypatch.setenv("LOCAL_FILES_ONLY", "1")
 
-    monkeypatch.setenv("MIN_SAMPLES_PER_STYLE", "2")
+    monkeypatch.setenv("MIN_SAMPLES_PER_STYLE", "1")
     monkeypatch.setenv("MAX_SAMPLES_PER_STYLE", "5")
     monkeypatch.setenv("EVAL_SAMPLE_SIZE", "2")
     monkeypatch.setenv("TRAIN_MAX_EXAMPLES", "3")

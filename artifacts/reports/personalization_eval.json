@@ -1,0 +1,21 @@
+{
+  "sample_count": 2,
+  "style_match_rate": 0,
+  "style_phrase_alignment": 0.0,
+  "items": [
+    {
+      "query": "Randy has 60 mango trees on his farm. He also has 5 less than half as many coconut trees as mango trees. How many trees does Randy have in all on his farm?",
+      "gold_style": "direct",
+      "predicted_style": "scaffolding",
+      "matched": false,
+      "phrase_alignment": 0.0
+    },
+    {
+      "query": "Brennan was researching his school project and had to download files from the internet to his computer to use for reference. After downloading 800 files, he deleted 70% of them because they were not helpful. He downloaded 400 more files but again realized that 3/5 of them were irrelevant. How many valuable files was he left with after deleting the unrelated files he downloaded in the second round?",
+      "gold_style": "direct",
+      "predicted_style": "scaffolding",
+      "matched": false,
+      "phrase_alignment": 0.0
+    }
+  ]
+}

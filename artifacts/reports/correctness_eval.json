@@ -1,0 +1,22 @@
+{
+  "sample_count": 2,
+  "avg_correctness": 0.4708333333333333,
+  "items": [
+    {
+      "query": "Randy has 60 mango trees on his farm. He also has 5 less than half as many coconut trees as mango trees. How many trees does Randy have in all on his farm?",
+      "reference": "The final answer is Half of the number of Randy's mango trees is 60/2 = <<60/2=30>>30 trees. So Randy has 30 - 5 = <<30-5=25>>25 coconut trees. Therefore, Randy has 60 + 25 = <<60+25=85>>85 treeson his farm. #### 85.",
+      "prediction": "좋은 출발이에요. 'Randy has 60 mango trees on his farm. He also has 5 less than half as many coconut trees as mango trees. How many trees does Randy have in all on his farm?'를 바로 풀기 전에 첫 단계만 같이 해볼게요. 작은 단서 하나를 적용한 뒤 다음 단계를 이어가면 됩니다.",
+      "style_label": "direct",
+      "selected_style": "scaffolding",
+      "overlap_score": 0.4166666666666667
+    },
+    {
+      "query": "Brennan was researching his school project and had to download files from the internet to his computer to use for reference. After downloading 800 files, he deleted 70% of them because they were not helpful. He downloaded 400 more files but again realized that 3/5 of them were irrelevant. How many valuable files was he left with after deleting the unrelated files he downloaded in the second round?",
+      "reference": "The final answer is The number of non-valuable files Brennan downloaded in the first round is 70/100*800 = <<70/100*800=560>>560 files. The number of valuable files Brennan downloaded in the first round is 800-560 = <<800-560=240>>240 When he downloaded 400 new files, there were 3/5*400= <<3/5*400=240>>240 non-useful files, which he deleted again. The total number of valuable files he downloaded in the second round is 400-240 = <<400-240=160>>160 To write his research, Brennan had 160+240 = <<160+240=400>>400 useful files to reference to write his research. #### 400.",
+      "prediction": "좋은 출발이에요. 'Brennan was researching his school project and had to download files from the internet to his computer to use for reference. After downloading 800 files, he deleted 70% of them because they were not helpful. He downloaded 400 more files but again realized that 3/5 of them were irrelevant. How many valuable files was he left with after deleting the unrelated files he downloaded in the second round?'를 바로 풀기 전에 첫 단계만 같이 해볼게요. 작은 단서 하나를 적용한 뒤 다음 단계를 이어가면 됩니다.",
+      "style_label": "direct",
+      "selected_style": "scaffolding",
+      "overlap_score": 0.525
+    }
+  ]
+}

@@ -22,4 +22,4 @@ def test_train_all_styles_runs(test_config):
     prepare_datasets(test_config)
     results = train_all_styles(config=test_config, max_examples=2)
 
-    assert set(results.keys()) == {"direct", "socratic", "scaffolding", "feedback", "motivational"}
+    assert set(results.keys()) == {"direct", "socratic", "scaffolding", "feedback"}

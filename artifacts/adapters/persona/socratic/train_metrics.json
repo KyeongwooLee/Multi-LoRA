@@ -1,0 +1,6 @@
+{
+  "train_loss": 0.0,
+  "samples": 2,
+  "mode": "mock",
+  "reason": "real training disabled (ENABLE_REAL_TRAINING=0)"
+}

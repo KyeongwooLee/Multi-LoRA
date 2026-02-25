@@ -41,15 +41,6 @@ STYLE_KEYWORDS: dict[str, tuple[str, ...]] = {
         "clarity",
         "suggestion",
     ),
-    "motivational": (
-        "great job",
-        "you can do it",
-        "confidence",
-        "keep going",
-        "proud",
-        "encourage",
-        "motivate",
-    ),
 }
 
 

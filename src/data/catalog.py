@@ -13,28 +13,28 @@ class DatasetSpec:
 
 DATASET_SPECS: tuple[DatasetSpec, ...] = (
     DatasetSpec(
-        dataset_name="tscc",
-        style_label=None,
-        relative_dir="tscc",
-        description="Teacher-Student Chatroom Corpus (shared by Direct/Motivational)",
+        dataset_name="gsm8k",
+        style_label="direct",
+        relative_dir="GSM8K.jsonl",
+        description="GSM8K dataset (Direct style, local file or HuggingFace)",
     ),
     DatasetSpec(
-        dataset_name="socraticlm",
+        dataset_name="socrateach_multi",
         style_label="socratic",
-        relative_dir="socraticlm",
-        description="SocraticLM dataset",
+        relative_dir="SocraTeach_multi.json",
+        description="SocraTeach_multi dataset (Socratic style)",
     ),
     DatasetSpec(
         dataset_name="eedi",
         style_label="scaffolding",
-        relative_dir="eedi",
-        description="Eedi Question-Anchored Tutoring Dialogues",
+        relative_dir="Eedi.jsonl",
+        description="Eedi Question-Anchored Tutoring Dialogues (local file or HuggingFace)",
     ),
     DatasetSpec(
-        dataset_name="feedback_prize",
+        dataset_name="socrateach_single",
         style_label="feedback",
-        relative_dir="feedback_prize",
-        description="Feedback Prize dataset",
+        relative_dir="SocraTeach_single.json",
+        description="SocraTeach_single dataset (Feedback style)",
     ),
 )
 

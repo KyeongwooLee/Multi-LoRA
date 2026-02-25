@@ -14,7 +14,6 @@ STYLE_SYSTEM_PROMPTS = {
     "socratic": "Guide the student with questions so they discover the answer.",
     "scaffolding": "Provide partial hints and gradual guidance between direct and socratic style.",
     "feedback": "Evaluate the student's answer and provide concrete improvements.",
-    "motivational": "Encourage the student and maintain confidence while teaching.",
 }
 
 
@@ -40,8 +39,8 @@ def _mock_generate(query: str, style: str) -> str:
             "특히 두 번째 단락에 예시를 추가해보세요."
         )
     return (
-        f"'{query}'를 충분히 해낼 수 있어요. 지금처럼 한 단계씩 진행하면 됩니다. "
-        "이미 중요한 포인트를 잘 잡고 있으니 계속 가봅시다."
+        f"좋은 출발이에요. '{query}'를 함께 단계적으로 정리해 봅시다. "
+        "핵심 단서를 먼저 확인한 뒤 다음 단계를 이어가면 됩니다."
     )
 
 

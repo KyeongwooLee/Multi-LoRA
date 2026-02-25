@@ -1,0 +1,88 @@
+{
+  "dataset_stats": {
+    "gsm8k": {
+      "source_path": "/mnt/c/Users/zldwk/OneDrive/Desktop/NLP_Project/Multi-LoRA/data/raw/GSM8K.jsonl",
+      "style_label": "direct",
+      "raw_samples": 7473,
+      "accepted_samples": 7473,
+      "rejected_dataset_rules": 0,
+      "rejected_quality": 0,
+      "source": "huggingface",
+      "files_found": 0,
+      "pairs_parsed": 7473,
+      "hf_split": "train"
+    },
+    "socrateach_multi": {
+      "source_path": "/mnt/c/Users/zldwk/OneDrive/Desktop/NLP_Project/Multi-LoRA/data/raw/SocraTeach_multi.json",
+      "style_label": "socratic",
+      "raw_samples": 150451,
+      "accepted_samples": 150139,
+      "rejected_dataset_rules": 0,
+      "rejected_quality": 312,
+      "source": "local",
+      "files_found": 1,
+      "pairs_parsed": 150451,
+      "dialogues_seen": 35151,
+      "turns_seen": 150451
+    },
+    "eedi": {
+      "source_path": "/mnt/c/Users/zldwk/OneDrive/Desktop/NLP_Project/Multi-LoRA/data/raw/Eedi.jsonl",
+      "style_label": "scaffolding",
+      "raw_samples": 17817,
+      "accepted_samples": 13493,
+      "rejected_dataset_rules": 3851,
+      "rejected_quality": 473,
+      "source": "huggingface",
+      "files_found": 0,
+      "pairs_parsed": 17817,
+      "hf_split": "train"
+    },
+    "socrateach_single": {
+      "source_path": "/mnt/c/Users/zldwk/OneDrive/Desktop/NLP_Project/Multi-LoRA/data/raw/SocraTeach_single.json",
+      "style_label": "feedback",
+      "raw_samples": 20806,
+      "accepted_samples": 20804,
+      "rejected_dataset_rules": 0,
+      "rejected_quality": 2,
+      "source": "local",
+      "files_found": 1,
+      "pairs_parsed": 20806
+    }
+  },
+  "style_counts": {
+    "direct": {
+      "total": 7473,
+      "train": 6758,
+      "eval": 369,
+      "test": 346
+    },
+    "socratic": {
+      "total": 30000,
+      "train": 27007,
+      "eval": 1519,
+      "test": 1474
+    },
+    "scaffolding": {
+      "total": 13492,
+      "train": 12122,
+      "eval": 683,
+      "test": 687
+    },
+    "feedback": {
+      "total": 20804,
+      "train": 18697,
+      "eval": 1065,
+      "test": 1042
+    }
+  },
+  "issues": [],
+  "constraints": {
+    "min_samples_per_style": 100,
+    "max_samples_per_style": 30000
+  },
+  "processed_paths": {
+    "train": "/mnt/c/Users/zldwk/OneDrive/Desktop/NLP_Project/Multi-LoRA/data/processed/train.jsonl",
+    "eval": "/mnt/c/Users/zldwk/OneDrive/Desktop/NLP_Project/Multi-LoRA/data/processed/eval.jsonl",
+    "test": "/mnt/c/Users/zldwk/OneDrive/Desktop/NLP_Project/Multi-LoRA/data/processed/test.jsonl"
+  }
+}

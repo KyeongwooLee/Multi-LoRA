@@ -10,6 +10,14 @@ from src.config import ProjectConfig, STYLE_LABELS, ensure_project_dirs, seed_ev
 from src.data.ingest import load_jsonl_records
 
 
+STYLE_TRAINING_SYSTEM_PROMPTS = {
+    "direct": "Give a clear answer with key concepts and step-by-step explanation.",
+    "socratic": "Guide the student with questions so they discover the answer.",
+    "scaffolding": "Provide partial hints and gradual guidance without giving away the full solution.",
+    "feedback": "Evaluate the student's answer and provide one concrete improvement.",
+}
+
+
 @dataclass
 class PersonaTrainingResult:
     style: str
@@ -39,10 +47,15 @@ def _load_style_records(config: ProjectConfig, style: str, max_examples: int | N
     return records
 
 
-def _format_training_text(record: dict) -> str:
+def _format_training_text(record: dict, style: str) -> str:
     instruction = record.get("instruction", "")
     response = record.get("response", "")
-    return f"### Instruction\n{instruction}\n\n### Response\n{response}"
+    system_prompt = STYLE_TRAINING_SYSTEM_PROMPTS.get(style, STYLE_TRAINING_SYSTEM_PROMPTS["scaffolding"])
+    return (
+        f"### System\n{system_prompt}\n\n"
+        f"### User\n{instruction}\n\n"
+        f"### Assistant\n{response}"
+    )
 
 
 def _is_oom_error(error: BaseException) -> bool:
@@ -180,7 +193,7 @@ def _train_with_hf(
     )
     model = get_peft_model(model, lora_config)
 
-    texts = [_format_training_text(record) for record in records]
+    texts = [_format_training_text(record, style=style) for record in records]
     train_dataset = _SFTDataset(texts=texts, tokenizer=tokenizer, max_length=config.max_seq_length)
 
     training_args = TrainingArguments(

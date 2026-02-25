@@ -4,7 +4,7 @@ This directory implements a complete Multi-LoRA pipeline for a personalized tuto
 
 ## Features
 
-- 5 persona adapters: `Direct`, `Socratic`, `Scaffolding`, `Feedback`, `Motivational`
+- 4 persona adapters: `Direct`, `Socratic`, `Scaffolding`, `Feedback`
 - Dataset ingest/normalization with style filtering, quality filtering, dedup, and provenance logs
 - Top-1 router (`BAAI/bge-m3` embedding backend with hash fallback)
 - Routed inference (`query -> selected style adapter -> response`)

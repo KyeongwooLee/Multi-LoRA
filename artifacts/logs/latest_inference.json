@@ -1,0 +1,21 @@
+{
+  "query": "Explain inertia simply",
+  "selected_style": "scaffolding",
+  "selected_style_display": "Scaffolding",
+  "router": {
+    "selected_style": "scaffolding",
+    "probabilities": {
+      "direct": 0.25239198131086604,
+      "socratic": 0.2514518628103726,
+      "scaffolding": 0.2528106907148282,
+      "feedback": 0.2433454651639331
+    },
+    "confidence": 0.2528106907148282,
+    "fallback_applied": true
+  },
+  "response": "좋은 출발이에요. 'Explain inertia simply'를 바로 풀기 전에 첫 단계만 같이 해볼게요. 작은 단서 하나를 적용한 뒤 다음 단계를 이어가면 됩니다.",
+  "latency_ms": 39.81239099994127,
+  "gpu_mem_peak_mb": 0.0,
+  "generation_mode": "mock",
+  "adapter_mode": "none"
+}

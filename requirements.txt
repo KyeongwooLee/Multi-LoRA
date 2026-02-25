@@ -1,6 +1,17 @@
-accelerate>=0.28.0
-numpy>=1.24.0
-peft>=0.10.0
-pytest>=8.0.0
-torch>=2.1.0
-transformers>=4.40.0
+numpy>=1.24,<3
+
+# Core training/inference stack
+torch>=2.2
+transformers>=4.44,<5
+peft>=0.11
+accelerate>=0.29
+
+# Data ingestion from HuggingFace Hub
+datasets>=2.18
+
+# Needed by many tokenizers and 4-bit quantization workflow
+sentencepiece>=0.1.99
+bitsandbytes>=0.43; platform_system == "Linux" and platform_machine == "x86_64"
+
+# Tests
+pytest>=8,<9

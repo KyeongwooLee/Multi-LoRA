@@ -20,7 +20,6 @@ def test_router_train_and_predict(test_config):
         "socratic",
         "scaffolding",
         "feedback",
-        "motivational",
     }
     assert "probabilities" in prediction
 
@@ -36,5 +35,4 @@ def test_router_fallback_applies_with_high_threshold(test_config):
         "direct",
         "socratic",
         "feedback",
-        "motivational",
     }
