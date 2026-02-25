@@ -1,0 +1,203 @@
+{
+  "metadata": {
+    "timestamp_utc": "2026-02-25T06:45:23.006433+00:00",
+    "mode": "offline",
+    "judge_model": "offline_heuristic",
+    "dataset_path": "/mnt/c/Users/zldwk/OneDrive/Desktop/NLP_Project/Evaluation/sample_eval_dataset.json",
+    "elapsed_sec": 0.154
+  },
+  "criteria_generation": {
+    "included_docs": [
+      {
+        "path": "Evaluation/eval.md",
+        "full_chars": 1505,
+        "used_chars": 1505
+      },
+      {
+        "path": "Multi-LoRA/spec.md",
+        "full_chars": 4117,
+        "used_chars": 4000
+      },
+      {
+        "path": "PLLM/PROJECT_PLAN_PERSONAL_LLM_TUTOR.md",
+        "full_chars": 4224,
+        "used_chars": 4000
+      }
+    ],
+    "criteria": {
+      "criteria": [
+        {
+          "name": "reference_correctness",
+          "description": "정답(레퍼런스)과 핵심 사실/논리가 얼마나 일치하는지 평가",
+          "weight": 0.5,
+          "score_min": 1,
+          "score_max": 5
+        },
+        {
+          "name": "explanation_clarity",
+          "description": "설명이 단계적이고 학습자가 이해하기 쉬운지 평가",
+          "weight": 0.2,
+          "score_min": 1,
+          "score_max": 5
+        },
+        {
+          "name": "hallucination_control",
+          "description": "레퍼런스에 없는 사실 추가, 왜곡, 과장 여부를 평가",
+          "weight": 0.2,
+          "score_min": 1,
+          "score_max": 5
+        },
+        {
+          "name": "personalization_alignment",
+          "description": "요청된 튜터링 스타일/개인화 톤과의 정렬도를 평가",
+          "weight": 0.1,
+          "score_min": 1,
+          "score_max": 5
+        }
+      ],
+      "pass_threshold": 70.0,
+      "overall_formula": "overall_score = (sum(weight * score_1_to_5) / 5) * 100",
+      "generation_mode": "offline_rule_based"
+    }
+  },
+  "summary": {
+    "num_items": 3,
+    "avg_overall_score": 58.0,
+    "min_overall_score": 40.0,
+    "max_overall_score": 70.0,
+    "pass_rate": 0.3333,
+    "pass_threshold": 70.0,
+    "criterion_averages": [
+      {
+        "name": "reference_correctness",
+        "weight": 0.5,
+        "avg_score_1_to_5": 2.667,
+        "avg_score_100": 53.33
+      },
+      {
+        "name": "explanation_clarity",
+        "weight": 0.2,
+        "avg_score_1_to_5": 3.333,
+        "avg_score_100": 66.67
+      },
+      {
+        "name": "hallucination_control",
+        "weight": 0.2,
+        "avg_score_1_to_5": 3,
+        "avg_score_100": 60.0
+      },
+      {
+        "name": "personalization_alignment",
+        "weight": 0.1,
+        "avg_score_1_to_5": 3,
+        "avg_score_100": 60.0
+      }
+    ]
+  },
+  "items": [
+    {
+      "item_id": "sample_001",
+      "question": "A train moves at 60 km/h for 2 hours and then 40 km/h for 1 hour. What is the average speed?",
+      "reference_answer": "Total distance is 160 km over 3 hours, so average speed is 53.33 km/h.",
+      "model_answer": "The train covers 120 km first and 40 km next, totaling 160 km in 3 hours, so the average speed is about 53.3 km/h.",
+      "style_label": "direct_instruction",
+      "criterion_scores": [
+        {
+          "name": "reference_correctness",
+          "score": 4,
+          "reason": "offline heuristic score"
+        },
+        {
+          "name": "explanation_clarity",
+          "score": 2,
+          "reason": "offline heuristic score"
+        },
+        {
+          "name": "hallucination_control",
+          "score": 4,
+          "reason": "offline heuristic score"
+        },
+        {
+          "name": "personalization_alignment",
+          "score": 3,
+          "reason": "offline heuristic score"
+        }
+      ],
+      "overall_score": 70.0,
+      "reference_match": "medium",
+      "major_issues": [],
+      "improvement_tip": "Align key facts with reference and keep explanation concise.",
+      "passed": true
+    },
+    {
+      "item_id": "sample_002",
+      "question": "Explain why increasing greenhouse gases can increase Earth's surface temperature.",
+      "reference_answer": "Greenhouse gases absorb and re-emit infrared radiation, reducing heat loss to space and raising the surface energy balance.",
+      "model_answer": "Greenhouse gases trap outgoing infrared radiation and send part of that energy back downward, which warms the lower atmosphere and surface.",
+      "style_label": "scaffolding",
+      "criterion_scores": [
+        {
+          "name": "reference_correctness",
+          "score": 3,
+          "reason": "offline heuristic score"
+        },
+        {
+          "name": "explanation_clarity",
+          "score": 4,
+          "reason": "offline heuristic score"
+        },
+        {
+          "name": "hallucination_control",
+          "score": 3,
+          "reason": "offline heuristic score"
+        },
+        {
+          "name": "personalization_alignment",
+          "score": 3,
+          "reason": "offline heuristic score"
+        }
+      ],
+      "overall_score": 64.0,
+      "reference_match": "medium",
+      "major_issues": [],
+      "improvement_tip": "Align key facts with reference and keep explanation concise.",
+      "passed": false
+    },
+    {
+      "item_id": "sample_003",
+      "question": "What is the main purpose of the Python `with` statement?",
+      "reference_answer": "It manages resources safely by automatically handling setup and cleanup, such as closing files even when errors occur.",
+      "model_answer": "The `with` statement is mainly for loops and improving variable scope in Python.",
+      "style_label": "feedback",
+      "criterion_scores": [
+        {
+          "name": "reference_correctness",
+          "score": 1,
+          "reason": "offline heuristic score"
+        },
+        {
+          "name": "explanation_clarity",
+          "score": 4,
+          "reason": "offline heuristic score"
+        },
+        {
+          "name": "hallucination_control",
+          "score": 2,
+          "reason": "offline heuristic score"
+        },
+        {
+          "name": "personalization_alignment",
+          "score": 3,
+          "reason": "offline heuristic score"
+        }
+      ],
+      "overall_score": 40.0,
+      "reference_match": "low",
+      "major_issues": [
+        "reference mismatch"
+      ],
+      "improvement_tip": "Align key facts with reference and keep explanation concise.",
+      "passed": false
+    }
+  ]
+}

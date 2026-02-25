@@ -1,0 +1,23 @@
+[
+  {
+    "id": "sample_001",
+    "question": "A train moves at 60 km/h for 2 hours and then 40 km/h for 1 hour. What is the average speed?",
+    "reference_answer": "Total distance is 160 km over 3 hours, so average speed is 53.33 km/h.",
+    "model_answer": "The train covers 120 km first and 40 km next, totaling 160 km in 3 hours, so the average speed is about 53.3 km/h.",
+    "style_label": "direct"
+  },
+  {
+    "id": "sample_002",
+    "question": "Explain why increasing greenhouse gases can increase Earth's surface temperature.",
+    "reference_answer": "Greenhouse gases absorb and re-emit infrared radiation, reducing heat loss to space and raising the surface energy balance.",
+    "model_answer": "Greenhouse gases trap outgoing infrared radiation and send part of that energy back downward, which warms the lower atmosphere and surface.",
+    "style_label": "scaffolding"
+  },
+  {
+    "id": "sample_003",
+    "question": "What is the main purpose of the Python `with` statement?",
+    "reference_answer": "It manages resources safely by automatically handling setup and cleanup, such as closing files even when errors occur.",
+    "model_answer": "The `with` statement is mainly for loops and improving variable scope in Python.",
+    "style_label": "feedback"
+  }
+]

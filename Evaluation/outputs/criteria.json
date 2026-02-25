@@ -1,0 +1,35 @@
+{
+  "criteria": [
+    {
+      "name": "reference_correctness",
+      "description": "정답(레퍼런스)과 핵심 사실/논리가 얼마나 일치하는지 평가",
+      "weight": 0.5,
+      "score_min": 1,
+      "score_max": 5
+    },
+    {
+      "name": "explanation_clarity",
+      "description": "설명이 단계적이고 학습자가 이해하기 쉬운지 평가",
+      "weight": 0.2,
+      "score_min": 1,
+      "score_max": 5
+    },
+    {
+      "name": "hallucination_control",
+      "description": "레퍼런스에 없는 사실 추가, 왜곡, 과장 여부를 평가",
+      "weight": 0.2,
+      "score_min": 1,
+      "score_max": 5
+    },
+    {
+      "name": "personalization_alignment",
+      "description": "요청된 튜터링 스타일/개인화 톤과의 정렬도를 평가",
+      "weight": 0.1,
+      "score_min": 1,
+      "score_max": 5
+    }
+  ],
+  "pass_threshold": 70.0,
+  "overall_formula": "overall_score = (sum(weight * score_1_to_5) / 5) * 100",
+  "generation_mode": "offline_rule_based"
+}
