@@ -26,39 +26,6 @@ pip install -U pip
 pip install -r requirements.txt
 ```
 
-## Raw Data Inputs
-
-Expected under `data/raw`:
-
-- `SocraTeach_multi.json` (socratic)
-- `SocraTeach_single.json` (feedback)
-- optional local `GSM8K.jsonl` or `GSM8K.json` (direct)
-- optional local `Eedi.jsonl` or `Eedi.json` (scaffolding)
-
-If local `GSM8K`/`Eedi` files are missing, ingest tries Hugging Face datasets.
-
-## Dataset-Specific Preprocessing
-
-Data-specific preprocessing is implemented in `src/data/dataset_preprocess.py` and applied during ingest.
-
-- `gsm8k` -> `direct`
-  - cleans calculation markers (`<<...>>`, `#### ...`)
-  - normalizes direct-answer style instruction/response
-- `socrateach_multi` -> `socratic`
-  - reinforces socratic response shape (question-guided)
-  - adds explicit socratic instruction context
-- `eedi` -> `scaffolding`
-  - removes emoji and low-information student utterances (`ok`, `yes`, `thx`, ...)
-  - drops social-only tutor responses
-  - enriches instruction with `QuestionId`, turn, and tutor-goal metadata
-- `socrateach_single` -> `feedback`
-  - formats instruction as student answer + feedback type
-  - normalizes formative feedback response shape
-
-Ingest summary now includes `rejected_dataset_rules` per dataset in:
-
-- `artifacts/logs/data_provenance.json`
-
 ## Training Flow (Real LoRA + Real Router Embedding)
 
 ```bash
@@ -110,11 +77,6 @@ After training, these files are required:
 - `artifacts/adapters/persona/<style>/adapter_model.safetensors`
 - `artifacts/adapters/persona/<style>/adapter_meta.json` (for verification)
 - `artifacts/router/router_model.json`
-
-For sanity checks:
-
-- adapter training mode should be `hf` in each `adapter_meta.json`
-- router backend should be `bge-m3` in `artifacts/router/router_metrics.json`
 
 ## Main Entry Points
 
