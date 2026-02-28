@@ -1,0 +1,5 @@
+{
+  "train_samples": 64584,
+  "train_accuracy": 0.9857704694661217,
+  "backend": "bge"
+}
